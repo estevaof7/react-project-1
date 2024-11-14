@@ -1,7 +1,8 @@
-import { Component } from 'react';
+import P from 'prop-types';
 import './styles.css'
+import React from 'react'; //ESLint
 
-export const PostCard = ({title, cover, body, id}) => {
+export const PostCard = ({title, cover, body}) => {
 
     return (
         <div className='post'>
@@ -14,3 +15,8 @@ export const PostCard = ({title, cover, body, id}) => {
     );
 }
 
+PostCard.propTypes = {
+  title: P.string.isRequired,
+  cover: P.string.isRequired,
+  body: P.string.isRequired,
+}

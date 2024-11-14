@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { PostCard } from '.';
 import { postCardPropsMock } from "./mock";
+import React from 'react'; //ESLint
 
 //O que queremos testar aqui?
 //Eu tenho uma imagem, um container com um h2 e um texto

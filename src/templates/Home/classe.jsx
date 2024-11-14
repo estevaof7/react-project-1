@@ -5,6 +5,7 @@ import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';
 import { Button } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
+import React from 'react'; //ESLint
 
 export class Home extends Component {
 
@@ -28,7 +29,7 @@ export class Home extends Component {
 
     this.setState({
       posts: postsAndPhotos.slice(page, postsPerPage),
-      //slice(0, 2) vai mostrar os dois primeiros posts 
+      //slice(0, 2) vai mostrar os dois primeiros posts
       allPosts: postsAndPhotos
     });
   }
