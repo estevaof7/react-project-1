@@ -6,14 +6,17 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {files: ["**/*.{js,mjs,cjs,jsx}"]},
+  {
+    files: ["**/*.{js,mjs,cjs,jsx,ts,tsx}"]
+  },
+
   {languageOptions: { globals: {...globals.browser, ...globals.node} }},
   pluginJs.configs.recommended,
 
   {
     rules: {
       "no-undef": "off", //coloquei isso porque estava dando problema com alguns métodos do jest
-      "no-extra-boolean-cast": "off" //para eu poder usar por exemplo !!variavel
+      "no-extra-boolean-cast": "off", //para eu poder usar por exemplo !!variavel
     }
   },
 

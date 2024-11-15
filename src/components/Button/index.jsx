@@ -1,7 +1,6 @@
 import P from 'prop-types';
 import './styles.css';
-import { Component } from "react";
-import React from 'react'; //ESLint
+import React, { Component } from "react";
 
 export class Button extends Component {
 

@@ -61,4 +61,4 @@ describe('<Posts />', () => {
 
         expect(container.firstChild).toMatchSnapshot();
     });
-})
+});
