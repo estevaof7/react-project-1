@@ -1,0 +1,76 @@
+import {rest} from 'msw';
+import {setupServer} from 'msw/node';
+
+import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
+import { Home } from ".";
+import React from "react"; //ESLint
+
+//para cada url que eu chamar externamente, ele intercepta a chamada
+const handlers = [
+  //no loadPosts, estou fazendo uma requisição de fetch... que é categorizada como get
+
+  rest.get('https://jsonplaceholder.typicode.com/posts', //eu passo a url que estou querendo interceptar
+    //Posso passar asterisco para considerar o site e suas variações, por exemplo https://picsum.photos/600/600?random=*
+    async (req, res, ctx) => { //a função é para resolver o que vou fzer quando essa url for chamada
+      return res(ctx.json(//essa resposta é o que vai chegar quando eu chamar "essa função" (qual?? A renderização?)
+        //quero que o contexto converta o que eu passar para json
+        //Eu quero passar o que a url retorna... no caso vams pegar 3 posts
+
+        [
+          {
+            userId: 1,
+            id: 1,
+            title: "title1",
+            body: "body1"
+          },
+          {
+            userId: 2,
+            id: 2,
+            title: "title2",
+            body: "body2"
+          },
+          {
+            userId: 3,
+            id: 3,
+            title: "title3",
+            body: "body3"
+          },
+        ]
+
+      ));
+  })
+
+
+
+];
+
+const server = setupServer(...handlers);
+
+describe('<Home />', () => {
+
+  beforeAll(() => {
+    server.listen();
+  });
+
+  afterEach(() => {
+    server.resetHandlers();
+  });
+
+  afterAll(() => {
+    server.close();
+  });
+
+  it('should render search, posts and, load more', async () => {
+    render(<Home />);
+
+    const noMorePosts = screen.getByText('Não existem posts :(');
+
+    await waitForElementToBeRemoved(noMorePosts);
+    //Como a função useEffect (que é a versão do componentDidMount) tem que esperar o fech acontecer, aqui, o render renderiza a primeira vez sem os posts pois eles ainda não foram chamados, por isso aparece o "não existem posts" se eu fizer o debug.
+
+    //Com essa função, ele espera o elemento ser removido (nesse caso, ele espera os posts serem carregados) para então fazer o teste 'it' e assim carregar o componente com os posts (fazer o debug para ver melhor)
+
+    screen.debug();
+  });
+
+});
