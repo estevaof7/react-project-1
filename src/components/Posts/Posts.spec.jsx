@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
 import { Posts } from '.';
-import React from 'react'; //ESLint
 
 const props =  [
         {

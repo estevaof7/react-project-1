@@ -1,6 +1,5 @@
 import P from 'prop-types';
 import './styles.css';
-import React, { Component } from "react";
 
 export class Button extends Component {
 

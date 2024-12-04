@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '.';
-import React from 'react'; //pois estava dando problema com o ESLint
 
 describe('<Button />', () => {
     it('should render the button with the text "Load more"', () => {

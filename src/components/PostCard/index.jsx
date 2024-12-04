@@ -1,6 +1,5 @@
 import P from 'prop-types';
 import './styles.css'
-import React from 'react'; //ESLint
 
 export const PostCard = ({title, cover, body}) => {
 

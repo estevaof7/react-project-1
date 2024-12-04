@@ -1,7 +1,6 @@
 import { render, screen } from "@testing-library/react"
 import { TextInput } from "."
 import userEvent from "@testing-library/user-event";
-import React from 'react'; //ESLint
 
 describe('<TextInput />', () => {
     //nosso input precisa de um searchvalue e uma função que é chamada no onchange

@@ -1,6 +1,5 @@
 import { render, screen, waitForElementToBeRemoved } from "@testing-library/react";
 import { Home } from ".";
-import React from "react"; //ESLint
 import userEvent from "@testing-library/user-event";
 import { loadPosts } from "../../utils/load-posts";
 
@@ -172,7 +171,6 @@ describe('<Home />', () => {
 
     const mockLoad = await loadPosts();
 
-    console.log(mockLoad);
     expect(mockLoad).toEqual(null);
     expect(fetch).toHaveBeenCalledWith('https://jsonplaceholder.typicode.com/posts');
   })

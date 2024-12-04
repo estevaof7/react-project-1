@@ -7,7 +7,6 @@ import { loadPosts } from '../../utils/load-posts';
 import { Posts } from '../../components/Posts';
 import { Button } from '../../components/Button';
 import { TextInput } from '../../components/TextInput';
-import React from 'react'; //ESLint
 
 export const Home = () => {
 

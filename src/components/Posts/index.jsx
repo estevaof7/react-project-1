@@ -1,7 +1,6 @@
 import P from 'prop-types';
 import './styles.css';
 import { PostCard } from "../PostCard";
-import React from 'react'; //ESLint
 
 
 export const Posts = ({ posts = [] }) => (

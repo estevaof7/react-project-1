@@ -13,13 +13,15 @@ export default [
   {languageOptions: { globals: {...globals.browser, ...globals.node} }},
   pluginJs.configs.recommended,
 
+  pluginReact.configs.flat.recommended,
+
   {
     rules: {
       "no-undef": "off", //coloquei isso porque estava dando problema com alguns métodos do jest
       "no-extra-boolean-cast": "off", //para eu poder usar por exemplo !!variavel
+      "react/react-in-jsx-scope": "off" //para não dar o erro 'React' must be in scope when using JSX
     }
   },
 
-  pluginReact.configs.flat.recommended,
   eslintConfigPrettier,
 ];
